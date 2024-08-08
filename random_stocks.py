@@ -2,7 +2,7 @@ import pandas as pd
 import random
 
 sp500_raw = pd.read_csv('archive/sp500_companies.csv')
-sp500= sp500_raw.copy()
+sp500 = sp500_raw.copy()
 
 random_stocks = random.sample(list(sp500['Symbol']), 30)
 
