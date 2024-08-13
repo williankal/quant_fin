@@ -3,6 +3,7 @@ import pandas as pd
 stocks = pd.read_csv('../infos_30/random_stocks_main.csv')
 tickers = stocks['Symbol'].tolist()
 
+cleaned_data_list = []
 
 for ticker in tickers:
     print(f'Cleaning data for {ticker}')
@@ -34,6 +35,15 @@ for ticker in tickers:
     data['Ticker'] = f'{ticker}'
 
     # Print the cleaned DataFrame
+    cleaned_data_list.append(data)
 
     # Save the cleaned DataFrame to a new CSV file
     data.to_csv(f'../data_bloomberg_clean/{ticker}_data.csv')
+
+
+consolidated_data = pd.concat(cleaned_data_list)
+
+# Save the consolidated DataFrame to a CSV file
+consolidated_data.to_csv('../data_bloomberg_clean/consolidated_data.csv')
+
+print('Consolidation complete. All data saved to consolidated_data.csv.')
