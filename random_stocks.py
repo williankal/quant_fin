@@ -10,4 +10,4 @@ print(random_stocks)
 print(len(random_stocks))
 
 random_stocks_df = pd.DataFrame(random_stocks)
-random_stocks_df.to_csv('random_stocks.csv', index=False)
+random_stocks_df.to_csv('infos_30/random_30_stocks.csv', index=False)
