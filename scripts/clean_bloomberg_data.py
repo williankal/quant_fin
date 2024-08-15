@@ -1,15 +1,16 @@
 import pandas as pd
 
-stocks = pd.read_csv('../infos_30/random_stocks_main.csv')
+stocks = pd.read_csv('../data/companies.csv')
 tickers = stocks['Symbol'].tolist()
 
 cleaned_data_list = []
 
 for ticker in tickers:
+
     print(f'Cleaning data for {ticker}')
+    
     # Load the CSV file with proper handling for headers
-    data = pd.read_csv(f'../data_bloomberg/{ticker}_data.csv', header=[0, 1], index_col=0, parse_dates=True).copy()
-    # Inspect the DataFrame to understand the structure
+    data = pd.read_csv(f'../data/raw/{ticker}_data.csv', header=[0, 1], index_col=0, parse_dates=True).copy()
 
     # Identify and drop any extra header rows or misaligned data
     # Assuming the extra header row is in index 0
@@ -18,7 +19,6 @@ for ticker in tickers:
 
     # Reset the index to get 'Date' as a column if it is not correctly set
     data.reset_index(inplace=True)
-
     data.set_index('Date', inplace=True)
 
     # Rename columns if necessary and add Ticker column
@@ -38,12 +38,12 @@ for ticker in tickers:
     cleaned_data_list.append(data)
 
     # Save the cleaned DataFrame to a new CSV file
-    data.to_csv(f'../data_bloomberg_clean/{ticker}_data.csv')
+    data.to_csv(f'../{ticker}_data.csv')
 
-
+# Conslidate the data in one
 consolidated_data = pd.concat(cleaned_data_list)
 
 # Save the consolidated DataFrame to a CSV file
-consolidated_data.to_csv('../data_bloomberg_clean/consolidated_data.csv')
+consolidated_data.to_csv('../consolidated_data.csv')
 
 print('Consolidation complete. All data saved to consolidated_data.csv.')
