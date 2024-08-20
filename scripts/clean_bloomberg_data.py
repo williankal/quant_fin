@@ -24,11 +24,8 @@ for ticker in tickers:
     # Rename columns if necessary and add Ticker column
     data.rename(columns={
         f'{ticker} US Equity.1': 'PX_LAST',
-        f'{ticker} US Equity.3': 'PX_HIGH',
-        f'{ticker} US Equity.2': 'PX_OPEN',
-        f'{ticker} US Equity.4': 'PX_LOW',
+        f'{ticker} US Equity': 'CUR_MKT_CAP',
         f'{ticker} US Equity.5': 'PX_VOLUME',
-        f'{ticker} US Equity': 'CUR_MKT_CAP'
     }, inplace=True)
 
     # Add Ticker column

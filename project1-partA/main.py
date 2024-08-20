@@ -7,10 +7,8 @@ consolidated_data.set_index('Date', inplace=True)
 #Calculate the market value for each asset
 consolidated_data['Market_Value'] = consolidated_data['PX_LAST'] * consolidated_data['CUR_MKT_CAP']
 
-# Group by date and calculate the total market value for each day
+# Group by date and calculate the total market value for each daycd
 total_market_value = consolidated_data.groupby(consolidated_data.index)['Market_Value'].sum()
-# Calculate weights for each asset
-consolidated_data['Weight'] = consolidated_data.groupby(consolidated_data.index)['Market_Value'].transform(lambda x: x / total_market_value)
 
 # # Calculate daily returns
 # consolidated_data['Daily_Return'] = consolidated_data.groupby('Symbol')['PX_LAST'].pct_change()
