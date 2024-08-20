@@ -8,16 +8,15 @@ stocks = pd.read_csv(DATA_DIR)
 tickers = stocks['Symbol'].tolist()
 
 # Define the fields you want to retrieve
-fields = ['PX_LAST', 'PX_OPEN', 'PX_HIGH', 'PX_LOW', 'PX_VOLUME', 'CUR_MKT_CAP']
+fields = ['PX_LAST', 'PX_OPEN', 'PX_HIGH', 'CUR_MKT_CAP', 'PX_VOLUME', 'PX_ADJ_LAST', 'SPX Index']
 start_date = '2014-01-01'
-end_date = '2024-12-31'
+end_date = '2023-12-31'
 
 # Retrieve data for each ticker and save it to CSV files
 for ticker in tickers:
     try:
         # Retrieve historical data
         hist = blp.bdh(f"{ticker} US Equity", fields, start_date, end_date)
-        
         # Save to a CSV file
         filename = f'{ticker}_data.csv'
         hist.to_csv(filename)
