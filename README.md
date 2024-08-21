@@ -9,15 +9,15 @@ dataset: https://www.kaggle.com/datasets/andrewmvd/sp-500-stocks?resource=downlo
 - [X] Rebalance these portfolios in the first day of the month based on the information on the last day (1-day lag)
 - [ ] Which portfolio has the highest turnover?
 - [X] Compute daily returns for both portfolios
-- [ ] Compute the following statistics for these portfolios: annualized average return, annualized standard deviation, Sharpe ratio, Information Ratio (vs. S&P 500)
-- [ ] Plot cumulative returns for both portfolios, S&P 500 and risk-free
+- [X] Compute the following statistics for these portfolios: annualized average return, annualized standard deviation, Sharpe ratio, Information Ratio (vs. S&P 500)
+- [X] Plot cumulative returns for both portfolios, S&P 500 and risk-free
 
 ## Project 1 - Part B
-- [ ] (a) Choose n stocks at random.
-- [ ] (b) Compute ex post returns on an equal-weighted portfolio (Wi = 1/n) over some historical period.
-- [ ] (c) Compute the variance of return from the data.
-- [ ] (d) Repeat (a) – (c), say, 10 times.
-- [ ] (e) Repeat (a) – (d) for n = 1,2,3….
+- [X] (a) Choose n stocks at random.
+- [X] (b) Compute ex post returns on an equal-weighted portfolio (Wi = 1/n) over some historical period.
+- [X] (c) Compute the variance of return from the data.
+- [X] (d) Repeat (a) – (c), say, 10 times.
+- [X] (e) Repeat (a) – (d) for n = 1,2,3….
 
 ## Project 1 - Part C
 - [ ] Find the optimum portfolio of these risky assets assuming that risk premium for each asset is given by past 10-year excess return. Make a reasonable assumption for the risk-free rate.
